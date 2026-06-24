@@ -1,6 +1,6 @@
 # humanizer
 
-安装和 agent 接入方式请先看 [SETUP.md](./SETUP.md)。
+安装方式：把这句话粘贴给你的 agent：`请从 https://github.com/klarkxy/humanizer 下载并安装 humanizer-zh-novel skill。`
 
 中文小说 `humanizer-zh-novel` skill 仓库。
 
