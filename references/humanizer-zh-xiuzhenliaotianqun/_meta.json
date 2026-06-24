@@ -1,0 +1,26 @@
+{
+  "name": "humanizer-zh-xiuzhenliaotianqun",
+  "display_name": "修真聊天群风格",
+  "source_type": "long_novel",
+  "generated_at": "2026-06-25",
+  "sample_summary": {
+    "chapter_count": 3174,
+    "sampled_chapter_count": 12,
+    "excerpt_count_in_skill": 4
+  },
+  "style_summary": {
+    "pov": "第三人称贴近角色反应，带轻喜剧内心吐槽",
+    "dialogue_density": "高",
+    "sentence_rhythm": "短句快节奏，吐槽和反应密集",
+    "core_traits": [
+      "日常和超常识并置",
+      "吐槽嵌入行动",
+      "荒诞事件流程化",
+      "对话带群友感和补刀"
+    ]
+  },
+  "privacy": {
+    "contains_full_text": false,
+    "contains_source_path": false
+  }
+}

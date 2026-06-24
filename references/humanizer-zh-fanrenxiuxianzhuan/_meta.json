@@ -1,0 +1,26 @@
+{
+  "name": "humanizer-zh-fanrenxiuxianzhuan",
+  "display_name": "凡人修仙传风格",
+  "source_type": "long_novel",
+  "generated_at": "2026-06-25",
+  "sample_summary": {
+    "chapter_count": 1266,
+    "sampled_chapter_count": 12,
+    "excerpt_count_in_skill": 4
+  },
+  "style_summary": {
+    "pov": "第三人称贴近主角判断",
+    "dialogue_density": "高",
+    "sentence_rhythm": "中等句长，带谨慎限定和试探节奏",
+    "core_traits": [
+      "谨慎试探",
+      "表面反应和内心判断分层",
+      "设定落在物件功能上",
+      "动作承载风险评估"
+    ]
+  },
+  "privacy": {
+    "contains_full_text": false,
+    "contains_source_path": false
+  }
+}

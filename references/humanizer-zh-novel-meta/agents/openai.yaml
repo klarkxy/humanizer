@@ -1,0 +1,4 @@
+interface:
+  display_name: "小说风格生成器"
+  short_description: "从长篇中文小说生成作品风格 humanizer 草案。"
+  default_prompt: "使用 $humanizer-zh-novel-meta 从这部长篇中文小说生成一个 humanizer 风格草案。"

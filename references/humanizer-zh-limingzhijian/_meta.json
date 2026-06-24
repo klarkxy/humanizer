@@ -1,0 +1,26 @@
+{
+  "name": "humanizer-zh-limingzhijian",
+  "display_name": "黎明之剑风格",
+  "source_type": "long_novel",
+  "generated_at": "2026-06-25",
+  "sample_summary": {
+    "chapter_count": 1594,
+    "sampled_chapter_count": 12,
+    "excerpt_count_in_skill": 4
+  },
+  "style_summary": {
+    "pov": "第三人称理性宏观视角",
+    "dialogue_density": "高",
+    "sentence_rhythm": "长句分析型，常连接制度和工程后果",
+    "core_traits": [
+      "宏观视角和冷幽默并置",
+      "制度和工程视角",
+      "解释服务决策",
+      "大场面落到设施和物理细节"
+    ]
+  },
+  "privacy": {
+    "contains_full_text": false,
+    "contains_source_path": false
+  }
+}
