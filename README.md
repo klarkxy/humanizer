@@ -1,6 +1,6 @@
 # humanizer
 
-安装方式：把这句话粘贴给你的 agent：`请从 https://github.com/klarkxy/humanizer 下载并安装 humanizer-zh-novel skill。`
+安装方式：把这句话粘贴给你的 agent：`请优先用 npx 安装 https://github.com/klarkxy/humanizer 的 humanizer-zh-novel skill；如果 npx 安装失败，请改用 git 直接下载并安装。`
 
 中文小说 `humanizer-zh-novel` skill 仓库。
 

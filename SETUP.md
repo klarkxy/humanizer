@@ -7,10 +7,10 @@
 当用户说：
 
 ```text
-请从 https://github.com/klarkxy/humanizer 下载并安装 humanizer-zh-novel skill。
+请优先用 npx 安装 https://github.com/klarkxy/humanizer 的 humanizer-zh-novel skill；如果 npx 安装失败，请改用 git 直接下载并安装。
 ```
 
-agent 必须完成本文件中的安装和校验流程。
+agent 必须先尝试 npx 安装；只有 npx 不可用、安装失败、网络失败或无法解析该仓库 skill 时，才使用 git 直接下载安装方案。
 
 ## 安装目标
 
@@ -34,7 +34,29 @@ agent 必须完成本文件中的安装和校验流程。
 $CODEX_HOME/skills
 ```
 
-## Windows PowerShell 安装步骤
+## 首选：npx 安装
+
+先确认 `npx` 可用：
+
+```powershell
+npx --version
+```
+
+如果可用，优先运行：
+
+```powershell
+npx skills add klarkxy/humanizer@humanizer-zh-novel -g -y
+```
+
+macOS/Linux 同样优先运行：
+
+```bash
+npx skills add klarkxy/humanizer@humanizer-zh-novel -g -y
+```
+
+如果该命令成功，继续执行“安装后校验”。如果失败，记录失败原因，改走下面的 git 兜底方案。
+
+## 兜底：Windows PowerShell git 直接下载安装
 
 ```powershell
 $repoUrl = "https://github.com/klarkxy/humanizer.git"
@@ -53,7 +75,7 @@ Copy-Item -Recurse -Force $tmp $target
 Remove-Item -Recurse -Force $tmp
 ```
 
-## macOS/Linux 安装步骤
+## 兜底：macOS/Linux git 直接下载安装
 
 ```bash
 repo_url="https://github.com/klarkxy/humanizer.git"
@@ -71,7 +93,7 @@ rm -rf "$tmp"
 
 ## 安装后校验
 
-进入安装目录：
+进入安装目录。若使用 npx 安装，请先定位实际安装目录；若使用 git 兜底方案，安装目录应为：
 
 ```text
 <skills-dir>/humanizer-zh-novel
@@ -115,4 +137,3 @@ python references\humanizer-zh-novel-meta\scripts\validate_skill.py references\h
 - 不要把 `references/humanizer-zh-novel-meta/` 单独当根 skill 安装，除非用户明确只要元生成器。
 - 不要提交或复制用户本地小说原文到 Git。
 - 如果目标目录已存在，可以覆盖安装，但不要删除 skills 目录里的其他 skill。
-
