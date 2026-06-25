@@ -1,0 +1,29 @@
+{
+  "name": "humanizer-zh-niliuchunzheniandai",
+  "display_name": "逆流纯真年代风格",
+  "source_type": "long_novel",
+  "generated_at": "2026-06-25",
+  "sample_summary": {
+    "chapter_count": 794,
+    "sampled_chapter_count": 12,
+    "excerpt_count_in_skill": 15
+  },
+  "style_summary": {
+    "pov": "第三人称多视角贴近主角与配角交替",
+    "dialogue_density": "高",
+    "sentence_rhythm": "短句节奏，大量省略号与双层反应",
+    "core_traits": [
+      "温情克制的重生年代叙事",
+      "密集对白带试探与自嘲",
+      "作者夹叙夹议的旁白越位",
+      "多视角灵活切换",
+      "情感压到动作和物件",
+      "时代感由具体物件与媒体引用漏出",
+      "段尾留疑不拔高"
+    ]
+  },
+  "privacy": {
+    "contains_full_text": false,
+    "contains_source_path": false
+  }
+}

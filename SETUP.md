@@ -44,6 +44,7 @@ $CODEX_HOME/skills
 | 用凡人修仙传风格改写 | `humanizer-zh-fanrenxiuxianzhuan` |
 | 用修真聊天群风格改写 | `humanizer-zh-xiuzhenliaotianqun` |
 | 用黎明之剑风格改写 | `humanizer-zh-limingzhijian` |
+| 用逆流纯真年代风格改写 | `humanizer-zh-niliuchunzheniandai` |
 | 列出/安装风格，或引导新建 | `humanizer-zh-novel-finder` |
 | 从长篇小说生成新风格 | `humanizer-zh-novel-meta` |
 
@@ -57,6 +58,7 @@ npx skills add klarkxy/humanizer-zh-novel --skill humanizer-zh-fanrenxiuxianzhua
 
 - `humanizer-zh-xiuzhenliaotianqun`
 - `humanizer-zh-limingzhijian`
+- `humanizer-zh-niliuchunzheniandai`
 - `humanizer-zh-novel-finder`
 - `humanizer-zh-novel-meta`
 

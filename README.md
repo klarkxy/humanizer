@@ -33,6 +33,7 @@ humanizer-zh-novel/
 | humanizer-zh-fanrenxiuxianzhuan | 凡人修仙传风格 | 凡人修仙传、凡人、韩立 |
 | humanizer-zh-xiuzhenliaotianqun | 修真聊天群风格 | 修真聊天群、修聊、宋书航 |
 | humanizer-zh-limingzhijian | 黎明之剑风格 | 黎明之剑、黎明、高文、塞西尔 |
+| humanizer-zh-niliuchunzheniandai | 逆流纯真年代风格 | 逆流纯真年代、纯真年代、人间武库、九二年代 |
 
 ## 安装某个作品风格
 
