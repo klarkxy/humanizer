@@ -1,0 +1,4 @@
+interface:
+  display_name: "Grill Your Novel"
+  short_description: "写网文、做大纲、人物卡、世界书和伏笔同步时使用。"
+  default_prompt: "帮我创建一个中文长篇网文项目，并通过 grilling 逐步完成设定、大纲、人物卡、章纲和正文后同步。"
