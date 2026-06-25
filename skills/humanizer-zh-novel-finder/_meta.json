@@ -1,0 +1,25 @@
+{
+  "name": "humanizer-zh-novel-finder",
+  "display_name": "中文小说 humanizer 风格发现器",
+  "source_type": "utility",
+  "generated_at": "2026-06-25",
+  "sample_summary": {
+    "source_type": "manual",
+    "note": "风格索引与管理入口，不从小说原文生成。"
+  },
+  "style_summary": {
+    "pov": "n/a",
+    "dialogue_density": "n/a",
+    "sentence_rhythm": "n/a",
+    "core_traits": [
+      "风格发现",
+      "安装引导",
+      "新建风格入口"
+    ]
+  },
+  "privacy": {
+    "contains_full_text": false,
+    "contains_source_path": false
+  },
+  "license": "SATA-2.0"
+}

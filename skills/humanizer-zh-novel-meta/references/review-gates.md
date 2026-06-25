@@ -15,7 +15,7 @@ slug：humanizer-zh-...
 覆盖审计：证据 10-16 / 规则 20-35 / 示例 3-6 / 六类规则池覆盖
 摘录合规：单条≤200，总量≤2400
 默认改写策略：重度作品风改写，不新增剧情事实，不迁移世界观
-将写入：references/humanizer-zh-.../
+将写入：skills/humanizer-zh-.../
 是否更新根 SKILL 索引：否/待确认
 ```
 
@@ -57,5 +57,5 @@ slug：humanizer-zh-...
 共享新增风格时，预期进入版本控制的改动只有：
 
 - 根 `SKILL.md` 的 YAML 索引条目。
-- `references/humanizer-zh-<slug>/SKILL.md`。
-- `references/humanizer-zh-<slug>/_meta.json`。
+- `skills/humanizer-zh-<slug>/SKILL.md`。
+- `skills/humanizer-zh-<slug>/_meta.json`。
