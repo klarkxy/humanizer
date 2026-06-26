@@ -1,4 +1,4 @@
-# humanizer-zh-novel
+# humanizer
 
 这个仓库收录了中文小说 humanizer 和其他中文创作辅助 skill，以 monorepo 形式组织。每个 `skills/<name>/` 都是独立 skill，skills.sh 这类管理器可以直接识别。
 
@@ -7,13 +7,13 @@
 把下面这句粘贴给你的 agent：
 
 ```text
-请直接读取 https://raw.githubusercontent.com/klarkxy/humanizer-zh-novel/main/SETUP.md 并按其中指引安装。
+请直接读取 https://raw.githubusercontent.com/klarkxy/humanizer/main/SETUP.md 并按其中指引安装。
 ```
 
 ## 仓库结构
 
 ```text
-humanizer-zh-novel/
+humanizer/
 ├── skills/                           # 独立 skill 集合
 │   ├── humanizer-zh-novel-finder/    # 风格发现与安装引导
 │   ├── humanizer-zh-novel-meta/      # 元生成器：从长篇小说生成新风格
@@ -47,13 +47,13 @@ humanizer-zh-novel/
 每个风格都能独立安装：
 
 ```bash
-npx skills add klarkxy/humanizer-zh-novel --skill humanizer-zh-fanrenxiuxianzhuan -g -y
+npx skills add klarkxy/humanizer --skill humanizer-zh-fanrenxiuxianzhuan -g -y
 ```
 
 如果管理器不支持 `--skill`，改用 `--subpath`：
 
 ```bash
-npx skills add klarkxy/humanizer-zh-novel --subpath skills/humanizer-zh-fanrenxiuxianzhuan -g -y
+npx skills add klarkxy/humanizer --subpath skills/humanizer-zh-fanrenxiuxianzhuan -g -y
 ```
 
 安装后调用：
@@ -65,7 +65,7 @@ npx skills add klarkxy/humanizer-zh-novel --subpath skills/humanizer-zh-fanrenxi
 ## 安装其他创作辅助 skill
 
 ```bash
-npx skills add klarkxy/humanizer-zh-novel --skill grill-your-novel -g -y
+npx skills add klarkxy/humanizer --skill grill-your-novel -g -y
 ```
 
 安装后调用：
@@ -79,7 +79,7 @@ npx skills add klarkxy/humanizer-zh-novel --skill grill-your-novel -g -y
 不确定有哪些风格、想安装某个风格、或想从长篇小说生成新风格时，安装风格发现器：
 
 ```bash
-npx skills add klarkxy/humanizer-zh-novel --skill humanizer-zh-novel-finder -g -y
+npx skills add klarkxy/humanizer --skill humanizer-zh-novel-finder -g -y
 ```
 
 然后调用：
