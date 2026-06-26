@@ -1,6 +1,6 @@
 # AGENT 安装手册
 
-本文件给 agent 阅读。用户不需要手动执行这些步骤；用户只需要把 README 开头那句安装指令粘贴给 agent。
+这份文件是给 agent 看的。用户不用手动执行，只要让 agent 读取并按步骤操作即可。
 
 ## 触发条件
 
@@ -10,11 +10,11 @@
 请直接读取 https://raw.githubusercontent.com/klarkxy/humanizer-zh-novel/main/SETUP.md 并按其中指引安装。
 ```
 
-agent 读取本文件后，按下方步骤执行。安装逻辑已写在本文件中，无需用户再补充。
+agent 读到这份文件后，照下面步骤走就行。
 
 ## 安装目标
 
-本仓库是 monorepo，每个 `skills/humanizer-zh-<slug>/` 都是独立 skill。agent 按用户需求安装对应 skill。
+本仓库是 monorepo，每个 `skills/humanizer-zh-<slug>/` 都是独立 skill。根据用户需求安装对应 skill。
 
 默认 skills 目录：
 
@@ -29,15 +29,15 @@ $CODEX_HOME/skills
 
 ## 安装策略优先级
 
-按以下顺序尝试，一旦成功即停止：
+按这个顺序尝试，谁先成功就用谁：
 
-1. **`npx skills add`**：Codex skill 管理器，最推荐。
-2. **`git clone` + 复制子目录**：`npx skills add` 失败或没有 `npx` 时使用。
-3. **github-raw 下载 zip + 复制子目录**：没有 `git` 时的兜底。
+1. `npx skills add`：Codex skill 管理器，优先尝试。
+2. `git clone` + 复制子目录：`npx skills add` 失败或没有 `npx` 时用。
+3. github-raw 下载 zip + 复制子目录：没 `git` 时的兜底。
 
 ## 按需安装指定 skill
 
-本仓库没有统一的“根 skill”。用户想用什么，就安装什么：
+本仓库没有统一的"根 skill"，按需求安装对应 skill：
 
 | 需求 | 安装目标 |
 | --- | --- |
@@ -48,7 +48,7 @@ $CODEX_HOME/skills
 | 列出/安装风格，或引导新建 | `humanizer-zh-novel-finder` |
 | 从长篇小说生成新风格 | `humanizer-zh-novel-meta` |
 
-### 方式 1：按 skill 名称安装（最推荐）
+### 方式 1：按 skill 名称安装
 
 ```bash
 npx skills add klarkxy/humanizer-zh-novel --skill humanizer-zh-fanrenxiuxianzhuan -g -y
@@ -64,17 +64,17 @@ npx skills add klarkxy/humanizer-zh-novel --skill humanizer-zh-fanrenxiuxianzhua
 
 ### 方式 2：按子路径安装
 
-如果管理器不支持 `--skill`，尝试 `--subpath`：
+如果管理器不支持 `--skill`，改用 `--subpath`：
 
 ```bash
 npx skills add klarkxy/humanizer-zh-novel --subpath skills/humanizer-zh-fanrenxiuxianzhuan -g -y
 ```
 
-> 不同管理器支持的参数名可能不同（`--skill`、`-s`、`--subpath` 等）。如果都不可用，改用 git 或 github-raw 方案。
+不同管理器支持的参数名可能不同（`--skill`、`-s`、`--subpath` 等）。如果都不可用，改用 git 或 github-raw 方案。
 
 ## 兜底 1：git 直接下载安装
 
-`npx skills add` 内部也会拉取 Git 仓库。该命令失败时，直接用 `git clone` 更可控。
+`npx skills add` 内部也会拉取 Git 仓库。该命令失败时，直接用 `git clone`。
 
 ### Windows PowerShell
 
@@ -112,9 +112,9 @@ cp -R "$tmp/skills/$skill_name" "$target"
 rm -rf "$tmp"
 ```
 
-### 欢迎测试他人的 fork 或 PR
+### 测试他人的 fork 或 PR
 
-想抢先试用社区贡献的新风格或修复，可以在复制到 skills 目录前切换到他人在 fork 或 PR 中的分支：
+想试用他人 fork 或 PR 里的新风格或修复，在复制到 skills 目录前先切换分支：
 
 ```bash
 cd "$tmp"
@@ -124,11 +124,11 @@ git checkout <LOCAL_BRANCH_NAME>
 
 Windows 同样使用 `git fetch` 与 `git checkout`，再复制目标子目录。
 
-试用后若觉得不错，可回到 GitHub 页面给该 PR 点赞或留言；agent 不代替你合并、发布或提交。
+试用后若觉得不错，用户自己回到 GitHub 页面点赞或留言；agent 不合并、不发布、不提交。
 
 ## 兜底 2：通过 github-raw 下载安装
 
-本方案不依赖本地 `git`，直接从 GitHub 下载仓库压缩包，只复制需要的子目录到 skills 目录。适用于没有 `npx` 也没有 `git` 的环境。
+本方案不依赖本地 `git`，直接从 GitHub 下载仓库压缩包，只把需要的子目录复制到 skills 目录。环境里既没 `npx` 也没 `git` 的时候用这个。
 
 ### Windows PowerShell
 
@@ -179,19 +179,19 @@ rm -rf "$tmp"
 <skills-dir>/<skill-name>
 ```
 
-必须确认：
+确认两点：
 
 - `SKILL.md` 存在。
 - 如果安装的是成品风格，`skills/humanizer-zh-novel-meta/scripts/validate_skill.py` 可以通过（先把校验脚本复制到可访问位置，或定位到本仓库的元生成器目录）。
 
-如果本机有 skill-creator 校验脚本，可运行：
+如果本机有 skill-creator 校验脚本，运行：
 
 ```powershell
 $env:PYTHONUTF8='1'
 python "$env:USERPROFILE\.codex\skills\.system\skill-creator\scripts\quick_validate.py" .
 ```
 
-校验脚本不存在时，不要失败退出；报告“已复制安装，未运行 skill-creator 校验”。
+校验脚本不存在时，不要失败退出，报告"已复制安装，未运行 skill-creator 校验"。
 
 ## 完成后回复用户
 
@@ -203,10 +203,10 @@ python "$env:USERPROFILE\.codex\skills\.system\skill-creator\scripts\quick_valid
 
 ## 约束
 
-- 不要把仓库安装成 `humanizer` 或 `humanizer-zh-novel` 这样的目录名；必须按 skill 名称安装（如 `humanizer-zh-fanrenxiuxianzhuan`）。
-- 不要提交或复制用户本地小说原文到 Git。
-- 如果目标目录已存在，可以覆盖安装，但不要删除 skills 目录里的其他 skill。
-- 鼓励试用他人 fork 或 PR 中的新风格，但 agent 只帮忙拉取代码，不会代替你合并、发布或提交。
+- 不要把仓库安装成 `humanizer` 或 `humanizer-zh-novel` 这种目录名，按 skill 名称安装（比如 `humanizer-zh-fanrenxiuxianzhuan`）。
+- 不要把用户本地的小说原文提交或复制到 Git。
+- 目标目录已经存在时直接覆盖，但 skills 目录里别的 skill 不要动。
+- 可以试用别人 fork 或 PR 里的新风格，但 agent 只拉代码，不合并、不发布、不提交。
 
 ## 协议
 

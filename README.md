@@ -1,6 +1,6 @@
 # humanizer-zh-novel
 
-中文小说作品风格 humanizer 仓库。这是一个 monorepo，每个 `skills/humanizer-zh-<slug>/` 都是可被 skills.sh 等管理器单独发现的独立 skill。
+这个仓库收录了几部中文小说的写作风格 humanizer，以 monorepo 形式组织。每个 `skills/humanizer-zh-<slug>/` 都是独立 skill，skills.sh 这类管理器可以直接识别。
 
 ## 一句话安装
 
@@ -37,19 +37,19 @@ humanizer-zh-novel/
 
 ## 安装某个作品风格
 
-每个风格都可以独立安装：
+每个风格都能独立安装：
 
 ```bash
 npx skills add klarkxy/humanizer-zh-novel --skill humanizer-zh-fanrenxiuxianzhuan -g -y
 ```
 
-如果管理器不支持 `--skill`，可尝试 `--subpath`：
+如果管理器不支持 `--skill`，改用 `--subpath`：
 
 ```bash
 npx skills add klarkxy/humanizer-zh-novel --subpath skills/humanizer-zh-fanrenxiuxianzhuan -g -y
 ```
 
-安装后直接调用：
+安装后调用：
 
 ```text
 使用 $humanizer-zh-fanrenxiuxianzhuan 改写这段中文小说正文。
@@ -57,13 +57,13 @@ npx skills add klarkxy/humanizer-zh-novel --subpath skills/humanizer-zh-fanrenxi
 
 ## 发现风格或新建风格
 
-如果你不确定有哪些风格、想安装某个风格、或想从长篇小说生成新风格，安装风格发现器：
+不确定有哪些风格、想安装某个风格、或想从长篇小说生成新风格时，安装风格发现器：
 
 ```bash
 npx skills add klarkxy/humanizer-zh-novel --skill humanizer-zh-novel-finder -g -y
 ```
 
-然后：
+然后调用：
 
 ```text
 使用 $humanizer-zh-novel-finder 列出可用风格。
@@ -83,23 +83,23 @@ npx skills add klarkxy/humanizer-zh-novel --skill humanizer-zh-novel-finder -g -
 
 ## 贡献新风格
 
-欢迎提交更多中文小说作品风格！每个风格都是独立的 `skills/humanizer-zh-<slug>/` 目录。
+每个风格都是独立的 `skills/humanizer-zh-<slug>/` 目录。
 
 ### 贡献方式
 
-1. **先开 issue 聊聊**（推荐）：告诉我们要新增什么作品风格，确认还没有人在做。
-2. **准备长篇小说原文**：必须是中文、至少 20 章、至少 10 万字，且你有权使用。
-3. **使用元生成器生成风格**：安装 `humanizer-zh-novel-meta` 后，说：
+1. 先开 issue 确认：说明要新增的作品风格，确认没有其他人正在做。
+2. 准备长篇小说原文：中文、至少 20 章、至少 10 万字，且你有权使用。
+3. 使用元生成器生成风格：安装 `humanizer-zh-novel-meta` 后，调用：
    ```text
    请用 humanizer-zh-novel-meta 从 <小说路径或文本> 生成 humanizer-zh-<slug> 风格。
    ```
-4. **本地验证**：确保 `scripts/validate_skill.py` 通过，并实际改写 1–2 段 AI 味文本检查效果。
-5. **提交 PR**：把 `skills/humanizer-zh-<slug>/SKILL.md` 和 `_meta.json` 作为最小集合提交。不要把小说原文、本地分析文件或工作产物提交到 Git。
+4. 本地验证：确保 `skills/humanizer-zh-novel-meta/scripts/validate_skill.py` 通过，并实际改写 1–2 段 AI 味文本检查效果。
+5. 提交 PR：把 `skills/humanizer-zh-<slug>/SKILL.md` 和 `_meta.json` 作为最小集合提交。不要把小说原文、本地分析文件或工作产物提交到 Git。
 
-### 贡献者权益
+### 版权说明
 
-- 每个作品风格目录的 LICENSE 由贡献者自行决定；未声明则默认沿用根项目 SATA-2.0 License。
-- 风格的 `_meta.json` 中可标注作者、来源说明等信息，但不得包含原文路径或私有本地路径。
+- 每个作品风格目录的 LICENSE 由贡献者自己定；没写就默认沿用根项目 SATA-2.0 License。
+- 风格的 `_meta.json` 里可以放作者、来源说明，但原文路径和本地私有路径不能写进去。
 
 ## 协议
 
