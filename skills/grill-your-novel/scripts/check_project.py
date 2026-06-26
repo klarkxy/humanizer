@@ -12,7 +12,9 @@ from pathlib import Path
 SKILL_ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE_ROOT = SKILL_ROOT / "references" / "模板"
 
-REQUIRED_FILES = [
+SHAPES = {"free", "long", "short", "essay", "zhihu", "nonfiction"}
+
+LONG_REQUIRED_FILES = [
     "项目总览.md",
     "世界书.md",
     "风格规则.md",
@@ -29,7 +31,19 @@ REQUIRED_FILES = [
     ".grill/待确认修改.md",
 ]
 
-REQUIRED_DIRS = ["大纲", "人物卡", "正文", ".grill"]
+LIGHT_REQUIRED_FILES = [
+    "项目总览.md",
+    "风格规则.md",
+    ".grill/状态.md",
+    ".grill/TODO.md",
+    ".grill/未决问题.md",
+    ".grill/决策记录.md",
+    ".grill/冲突记录.md",
+    ".grill/待确认修改.md",
+]
+
+LONG_REQUIRED_DIRS = ["大纲", "人物卡", "正文", ".grill"]
+LIGHT_REQUIRED_DIRS = ["正文", ".grill"]
 
 CHAPTER_HEADINGS = [
     "本章功能",
@@ -67,10 +81,12 @@ def count_cjk_chars(text: str) -> int:
     return sum(1 for ch in text if "\u4e00" <= ch <= "\u9fff")
 
 
-def check_project(project: Path, fix: bool = False) -> list[str]:
+def check_project(project: Path, fix: bool = False, shape: str = "free") -> list[str]:
     findings: list[str] = []
+    required_dirs = LONG_REQUIRED_DIRS if shape == "long" else LIGHT_REQUIRED_DIRS
+    required_files = LONG_REQUIRED_FILES if shape == "long" else LIGHT_REQUIRED_FILES
 
-    for dirname in REQUIRED_DIRS:
+    for dirname in required_dirs:
         path = project / dirname
         if not path.exists():
             if fix:
@@ -81,7 +97,7 @@ def check_project(project: Path, fix: bool = False) -> list[str]:
         elif not path.is_dir():
             findings.append(f"Expected directory but found file: {dirname}")
 
-    for rel in REQUIRED_FILES:
+    for rel in required_files:
         path = project / rel
         if not path.exists():
             if fix and copy_missing(project, rel):
@@ -90,7 +106,7 @@ def check_project(project: Path, fix: bool = False) -> list[str]:
                 findings.append(f"Missing file: {rel}")
 
     chapter_template = project / "大纲" / "章纲模板.md"
-    if chapter_template.exists():
+    if shape == "long" and chapter_template.exists():
         text = read_text(chapter_template)
         for heading in CHAPTER_HEADINGS:
             if f"## {heading}" not in text:
@@ -111,7 +127,7 @@ def check_project(project: Path, fix: bool = False) -> list[str]:
             findings.append("Proposal entries exist but no valid status line was found.")
 
     manuscript_dir = project / "正文"
-    if manuscript_dir.exists():
+    if shape == "long" and manuscript_dir.exists():
         for path in sorted(manuscript_dir.glob("*.md")):
             chars = count_cjk_chars(read_text(path))
             if chars and chars < 2000:
@@ -124,12 +140,18 @@ def check_project(project: Path, fix: bool = False) -> list[str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="校验 grill-your-novel 项目结构；不评价创作内容。")
-    parser.add_argument("project", help="小说项目目录")
+    parser.add_argument("project", help="项目目录")
     parser.add_argument("--fix", action="store_true", help="只补齐缺失目录和空模板，不补创作内容")
+    parser.add_argument(
+        "--shape",
+        choices=sorted(SHAPES),
+        default="free",
+        help="项目形态；默认 free，只检查最小工作区。",
+    )
     args = parser.parse_args()
 
     project = Path(args.project)
-    findings = check_project(project, args.fix)
+    findings = check_project(project, args.fix, args.shape)
     if findings:
         print("FOUND:")
         for item in findings:
